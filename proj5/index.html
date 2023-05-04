@@ -9,7 +9,7 @@
       padding-left: 100px;
     }
   </style>
-<title>Your Name  |  CS 184</title>
+<title>CS 184 Final Report</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 </head>
@@ -25,11 +25,12 @@
     <table style="width=100%">
         <tr>
             <td align="middle">
-                <img src="images/fog_s4096_l64_a01_s03_kn02.png" width="480px" />
+                <img src="images/bunny_s512_l16_a005_s003.png" width="480px" />
                 <figcaption align="middle"></figcaption>
         </tr>
     </table>
 </div>
+
 
     <div class="padded">
 
@@ -37,12 +38,14 @@
         <p>
             In this project we aimed to render scenes that contain participating media such as fog, smoke, or dust. Previously we implemented a pathtracer that assumes that light only scatters upon intersection with a surface. Our resulting images therefore replicate environments where objects are embedded in a vacuum. However in reality, impurities and microscopic particles exist within the space between objects. Since even clean air scatters light, it is important for us to accurately simulate how light behaves.
             We would need to render images with a volumetric scattering effect where rays sometimes scatter before hitting a surface. This involves implementing a more complex version of irradiance, extinction, and absorption coefficients, and implementing a phase function, which defines the distribution of the direction in which light scatters.
+            <br><br>
+            <a href="https://drive.google.com/file/d/1UAw80iqjJNChZFiPsM2buEyh9OXikAJe/view?usp=sharing">Final Project Video</a>
 
         </p>
 
 
 
-        <h3 align="middle">Techincal Approach</h3>
+        <h3 align="middle">Technical Approach</h3>
 
 <!--        A 1-2 page summary of your technical approach, techniques used, algorithms implemented, etc.
 (use references to papers or other resources for further detail). Highlight how your approach varied from the references used
@@ -171,18 +174,41 @@
                         <figcaption>Backward Scattering <i>k</i> = -0.5</figcaption>
                     </td>
                 </tr>
-                <tr align="center">
-                    <td>
-                        <img src="images/fog_s4096_l64_a01_s03_kn02.png" align="middle" width="400px"/>
-                        <figcaption>4096 samples/pixel 64 samples/light &sigma;<sub>a</sub> = 0.1, &sigma;<sub>s</sub> = 0.3 <i>k</i> = 0.2</figcaption>
-                    </td>
-                    <td>
-                        <img src="images/bunny_s1024_l32_a01_s03.png" align="middle" width="400px"/>
-                        <figcaption>Very Foggy Bunny</figcaption>
-                    </td>
+
+
+
+            </table>
+        </div>
+
+        <div align="center">
+            <table style="width=100%">
+                <tr>
+                    <td align="middle">
+                        <img src="images/fog_s4096_l64_a01_s03_kn02.png" width="480px" />
+                        <figcaption align="middle">4096 samples/pixel 64 samples/light &sigma;<sub>a</sub> = 0.1, &sigma;<sub>s</sub> = 0.3 <i>k</i> = 0.2</figcaption>
                 </tr>
             </table>
         </div>
+
+        <div align="middle">
+            <table style="width:80%">
+        <tr align="center">
+            <td>
+                <img src="images/bunny_s128_l16_a005_s003.png" align="middle" width="400px"/>
+                <figcaption>128 samples/pixel 16 samples/light &sigma;<sub>a</sub> = 0.05, &sigma;<sub>s</sub> = 0.03 <i>k</i> = 0</figcaption>
+            </td>
+            <td>
+                <img src="images/bunny_s512_l16_a005_s003.png" align="middle" width="400px"/>
+                <figcaption>Foggy Bunny</figcaption>
+            </td>
+            <td>
+                <img src="images/bunny_s1024_l32_a01_s03.png" align="middle" width="400px"/>
+                <figcaption>Very Foggy Bunny</figcaption>
+            </td>
+        </tr>
+    </table>
+</div>
+
 
 
         <h3 align="middle">References</h3>
@@ -199,23 +225,30 @@
         <h3 align="middle">Contributions from Each Team Member</h3>
         <p>
             <br>
-            When it came to implementation, troubleshooting, or any other general work, we spent nearly the entirety of this project working together as a group in person or over zoom.
+            When it came the implementation, troubleshooting, or any other general work, we spent nearly the entirety of this project working together as a group in person or over zoom.
             Below are some more detailed and specific contributions from each of us.
             <br><br>
             <b>Shrihan Agarwal</b>
             <br><br>
+            I worked on the back-end as well primarily, leading with the coding of the Schlick phase function and sampler, and also helping with light bounces. I implemented the command line arguments for the scatter, absorption and backscattering coefficient. I was also responsible for generating many of the renders with pink lighting, and modifying the .dae file accordingly.
 
             <br><br>
             <b>Suhrid Saha</b>
             <br><br>
+            My work mainly involved back-end issues like fine-tuning the logic and geometry of the algorithm (I wrote most of the technical approach section on the webpage), defining the design of our code overall (including decisions to use certain objects, class methods, and other parameters), assisting with writing the code for the light bounces, and assisting with the debugging process (such as making changes to the code in case of visual or procedural errors).
 
             <br><br>
             <b>Nate Dyre</b>
             <br><br>
+            I first worked to find images and resources we could use to assist in our project, and also in order to have goals that we could strive for. I helped Shrihan and Suhrid with the code, specifically with fixing the initial renders which did not have enough illumination. I also helped fix an issue with how the particle interacts with the light when it absorbs, which before was contributing many black spots in the images.
 
             <br><br>
             <b>Alan Chiem</b>
             <br><br>
+            My main contributions towards this project were mostly tasks dealing with the front-end. This included handling the websites, videos, write-ups and other submission materials.
+            For our writeups, my aim was to include high-level explanations behind our project that are intuitive and easy to follow.
+            I also wanted to take the time to ensure that our final report page was visually appealing by choosing good .dae files
+            and fine-tuning our absorption/scattering coefficients.
 
         </p>
 
